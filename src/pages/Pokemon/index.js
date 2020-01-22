@@ -6,6 +6,10 @@ export default class PokemonDetail extends Component {
         name: '',
         pokemonIndex: '',
         imageUrl: '',
+        types: [],
+        description: '',
+        height: '',
+        weight: '',
     };
 
     async componentDidMount() {
@@ -18,12 +22,27 @@ export default class PokemonDetail extends Component {
 
         const name = pokemonRes.data.name;
         const imageUrl = pokemonRes.data.sprites.front_default;
+
+        const height = pokemonRes.data.height;
+        const weight = pokemonRes.data.weight;
+
+        const types = pokemonRes.data.types.map(t => t.type.name);
+
+        await axios.get(pokemonSpeciesUrl).then(res => {
+            let description = '';
+            res.data.flavor_text_entires.some(f => {
+                if (f.language.name === 'en') {
+                    description = f.flavor_text;
+                    return;
+                }
+            })
+        })
     }
 
     render() {
         return (
             <div>
-                
+asasas
             </div>
         )
     }

@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Link} from 'react-router-dom';
 
 import Pokedex from './pages/Pokedex';
 import Berries from './pages/Berries';
+import Pokemon from './pages/Pokemon';
 
 export default function Routes() {
     return (
@@ -19,6 +20,7 @@ export default function Routes() {
                     <Route path="/" exact component={Pokedex} />
                     <Route path="/pokedex" exact component={Pokedex} />
                     <Route path="/berries" component={Berries} />
+                    <Route path="/pokemon:pokemonIndex" component={Pokemon} />
                 </Switch>
             </div>
         </BrowserRouter>
